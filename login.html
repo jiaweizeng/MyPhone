@@ -6,18 +6,24 @@
     <title>Login</title>
     <style>
         .login-container {
+            position: fixed;
             width: 240px;
             height: 300px;
             /* position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%); */
-            padding: 2rem;
+            /* padding: 2rem; */
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             border-radius: 5px;
         }
 
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
         .login-form label {
             display: block;
@@ -26,31 +32,43 @@
 
         .login-form input {
             display: block;
-            width: 100%;
+            width: 180px;
             padding: 0.5rem;
-            border-radius: 0.25rem;
-            border: 1px solid #ccc;
+            /* border-radius: 0.25rem; */
+            /* border: 1px solid #ccc; */
+            border: none; 
+            border-bottom: 1px solid #EEEEEE;
             margin-bottom: 1rem;
         }
 
         .login-form button {
             display: block;
-            width: 100%;
+            width: 50%;
             padding: 0.5rem;
-            background-color: #007bff;
-            color: #fff;
+            /* background-color: #007bff; */
+            background: none;
+            color: #0176F6;
             border: none;
             border-radius: 0.25rem;
             cursor: pointer;
         }
 
         .title {
+            font-size: 18px;
+            margin-top: 60px;
+            font-weight: bold;
             text-align: center;
         }
 
-        .login-form button:focus,
+        /* .login-form button:focus,
         .login-form button:hover {
             background-color: #0069d9;
+        } */
+
+        .ivClose {
+            width: 16px;
+            height: 16px;
+            padding: 10px;
         }
     </style>
 </head>
@@ -59,13 +77,17 @@
 
     <div class="login-container">
 
-        <h2 class="title">Login</h2>
+        <img class="ivClose" src="drawable/close_gray.png" style="position: absolute; top: 0; right: 0;"
+            alt="A beautiful image">
+
+
+        <h2 class="title">欢迎使用</h2>
         <form class="login-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
+            <!-- <label for="username">Username:</label> -->
+            <input type="text" id="username" name="username" placeholder="请输入账号" required>
+            <!-- <label for="password">Password:</label> -->
+            <input type="password" id="password" name="password" placeholder="请输入密码" required>
+            <button type="submit">登录</button>
         </form>
     </div>
 

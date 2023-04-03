@@ -1,9 +1,9 @@
 const { app, BrowserWindow } = require('electron')
 const createWindow = () => {
     const win = new BrowserWindow({
-      width: 800,
-      height: 600,
-      // transparent: true,
+      width: 320,
+      height: 400,
+      transparent: true,
       frame: false 
     })
   
