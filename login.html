@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        .login-container {
+            width: 240px;
+            height: 300px;
+            /* position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+
+        .login-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-form input {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            border: 1px solid #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .login-form button {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .login-form button:focus,
+        .login-form button:hover {
+            background-color: #0069d9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <h2 class="title">Login</h2>
+        <form class="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#login-form').submit(function (event) {
+                event.preventDefault();
+                var username = $('#username').val();
+                var password = $('#password').val();
+
+                // 这里可以根据实际情况发送 AJAX 请求到后端验证用户名和密码是否正确
+                // 如果验证成功就跳转到主页面，否则弹出提示信息
+
+                if (username === "admin" && password === "123456") {
+                    window.location.href = "main.html";
+                } else {
+                    alert("Your username or password is incorrect.");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

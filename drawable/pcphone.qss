@@ -1,0 +1,240 @@
+/*整体风格*/
+QWidget
+{
+	font:12px "Microsoft YaHei";
+	color:rgb(45,45,45);
+	outline:none;
+}
+
+#login
+{
+	background:#FFFFFF;
+}
+
+#title {
+	font:16px;
+	font-weight:bold;
+}
+#etID,#etPwd{
+	background:transparent;
+	padding:5px;
+	border-color: #EEEEEE;
+	border-style:solid;
+	border-top-width:0px;
+	border-right-width:0px;
+	border-bottom-width:1px;
+	border-left-width:0px;
+}
+Home #homeNum
+{
+	font:20px;
+}
+Home #frameSwitch{
+	background:transparent;
+	background-color:rgba(242,242,242,1);
+	border-color: #E9E9E9;
+	border-style:solid;
+	border-top-width:0px;
+	border-right-width:1px;
+	border-bottom-width:0px;
+	border-left-width:0px;
+}
+
+Login #btnClose{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	qproperty-icon:url(":/SilkVoiceDemo/Resources/close_gray.png");
+}
+#btnLogin{
+	font:16px;
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	color:rgb(1,118,246);
+}
+#scrollWid{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	background-color:rgb(255,255,255);
+}
+#scrollAreaSetting{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	color:rgb(255,255,255);
+}
+
+Home #btnClose{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	qproperty-icon:url(":/SilkVoiceDemo/Resources/close.png");
+}
+Home #btnSmall{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	qproperty-icon:url(":/SilkVoiceDemo/Resources/small.png");
+}
+Home #btnSetting{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	qproperty-icon:url(":/SilkVoiceDemo/Resources/setting.png");
+}
+Home #btnKeyboard{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	color:rgba(67,67,67,1);
+	qproperty-icon:url(":/SilkVoiceDemo/Resources/keyboard.png");
+}
+Home #btnRecord{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	color:rgba(67,67,67,1);
+	qproperty-icon:url(":/SilkVoiceDemo/Resources/record.png");
+}
+
+
+
+Setting #offlineNumChange,Setting #micTest,Setting #speakerTest,Setting #shakeTest{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	color:rgba(66,132,255,1);
+}
+Setting #etShakeDev{
+	color:rgba(51,51,51,1);
+}
+Setting #loginNum{
+	color:rgba(51,51,51,1);
+}
+Setting #callInNum{
+	color:rgba(51,51,51,1);
+}
+Setting #line, #line1, Setting #line2, Setting #line3, Setting #line4, Setting #line5, Setting #line6, Setting #line7, Setting #line8
+{
+	background:transparent;
+	border-color: #EEEEEE;
+	border-style:solid;
+	border-top-width:0px;
+	border-right-width:0px;
+	border-bottom-width:1px;
+	border-left-width:0px;
+}
+Setting #devPlayWid,Setting #inputDevWid,Setting #shakeWid,Setting #ringbackWid{
+	background:transparent;
+	border-color: #E9E9E9;
+	border-style:solid;
+	border-width:1px;
+}
+Setting #devPlaySelect,Setting #devInputSelect,Setting #shakeSelect,Setting #ringbackSelect{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+}
+
+Keyboard #etPhone{
+	color:rgba(255,255,255,1);
+	font:24px;
+	background:transparent;
+	font-weight:bold;
+	border-width:0;
+	border-style:outset;
+}
+Keyboard #btnCall{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	border-radius:20px;
+	qproperty-icon:url(":/SilkVoiceDemo/Resources/call2.png");
+}
+Keyboard #btnDel{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	qproperty-icon:url(":/SilkVoiceDemo/Resources/del.png");
+}
+Keyboard #btn1,#btn2,#btn4,#btn5,#btn7,#btn8,#btn10,#btn11,#btn3,#btn6,#btn9,#btn12{
+	font:24px;
+	color:rgba(255, 255, 255, 1);
+	background-color:rgba(255, 255, 255, 0.16);
+	border-width:0;
+	border-style:outset;
+	border-radius:20px;
+}
+
+QListWidget::item 
+{ 
+	margin-left:20px;
+	margin-right:20px;
+	border-bottom: 1px solid;
+	border-color:#EEEEEE;
+}
+
+
+RecordItem #phoneNum
+{
+	font:18px;
+}
+
+CToolTip #tipContent
+{
+	font:16px;
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	color:rgb(255,255,255)
+}
+CToolTip #line
+{
+	background-color:rgba(233,233,233,30)
+}
+
+AudioProgress #btnClose{
+	background:transparent;
+	border-width:0;
+	border-style:outset;
+	qproperty-icon:url(":/SilkVoiceDemo/Resources/close_gray.png");
+}
+
+AudioProgress #labTip{
+	color:rgba(68,68,68,1);
+}
+
+AudioProgress #widPlay{
+	border-radius:8px;
+	background-color:rgba(255,255,255,1);
+}
+
+AudioProgress #widProgress{
+	border-radius:8px;
+	background-color:rgba(68,68,68,1);
+}
+
+AudioProgress #btnPlay{
+	background:transparent;
+	qproperty-icon:url(":/SilkVoiceDemo/Resources/play.png");
+}
+
+AudioProgress #labDur{
+	color:rgba(255,255,255,1);
+}
+
+AudioProgress #labTotalDur{
+	color:rgba(255,255,255,1);
+}
+
+AudioProgress #line
+{
+	background-color:rgba(233,233,233,65.24%)
+}
+
+MicTest #contentWidget{
+	border-radius:8px;
+	background-color:rgba(255,255,255,1);
+}
