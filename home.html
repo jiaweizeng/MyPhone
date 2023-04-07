@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .homeContainer {
+            width: 560px;
+            height: 420px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .homeTop {
+            display: flex;
+            align-items: center;
+            /* 将子内容在垂直方向上居中 */
+            justify-content: space-between; /* 横向排列子元素，两端对齐 */
+            width: 560px;
+            height: 52px;
+            background-color: #0176F6;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        .homeLogo {
+            width: 36px;
+            height: 36px;
+            margin-left: 12px;
+        }
+
+        .topLeft {
+            display: flex;
+            /* 使用flexbox布局 */
+            align-items: center;
+            /* 垂直居中子元素 */
+            justify-content: flex-start;
+            /* 横向排列子元素，左对齐 */
+        }
+
+        .tvNum {
+            color: #FFFFFF ;
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+        .topRight {
+            display: flex;
+            /* 使用flexbox布局 */
+            align-items: center;
+            /* 垂直居中子元素 */
+            justify-content: flex-end;
+            /* 横向排列子元素，右对齐 */
+            margin-right: 12px;
+        }
+        .ivSmall{
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .ivClose{
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="homeContainer">
+        <div class="homeTop">
+            <div class="topLeft">
+                <img src="drawable/ic_launcher.png" class="homeLogo">
+                <p class="tvNum">123456789</p>
+            </div>
+            <div class="topRight">
+                <img src="drawable/small.png" alt="small" class="ivSmall">
+                <img src="drawable/close.png" alt="close" class="ivClose">
+            </div>
+        </div>
+    </div>
+    <script src="render/home.js"></script>
+</body>
+
+</html>

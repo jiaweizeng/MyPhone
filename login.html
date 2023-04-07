@@ -8,8 +8,8 @@
     <style>
         .login-container {
             position: fixed;
-            user-select: none;
             /* 取消滑动鼠标框选文字 */
+            user-select: none;
             width: 240px;
             height: 300px;
             background-color: #fff;
@@ -75,49 +75,14 @@
 
 
         <h2 class="title">欢迎使用</h2>
-        <form class="login-form">
-            <input type="text" id="username" name="username" placeholder="请输入账号" required>
-            <input type="password" id="password" name="password" placeholder="请输入密码" required>
+        <form class="login-form" id="login-form">
+            <input type="text" id="username" name="username" placeholder="请输入账号" value="admin" required>
+            <input type="password" id="password" name="password" placeholder="请输入密码" value="123456" required>
             <button type="submit">登录</button>
         </form>
     </div>
 
-    <script>
-        const { ipcRenderer } = require('electron');
-        window.$ = window.jQuery = require('jquery');
-        $(document).ready(function () {
-            $('#login-form').submit(function (event) {
-                event.preventDefault();
-                var username = $('#username').val();
-                var password = $('#password').val();
-
-                if (username === "admin" && password === "123456") {
-                    window.location.href = "main.html";
-                } else {
-                    alert("Your username or password is incorrect.");
-                }
-            });
-            $('#ivLoginClose').click(function () {
-                ipcRenderer.send('quit-app');
-            });
-        });
-
-        document.addEventListener('mousedown', (event) => {
-            const position = { x: event.screenX, y: event.screenY }
-            ipcRenderer.send('mousedown', position)
-        })
-
-        document.addEventListener('mousemove', (event) => {
-            const position = { x: event.screenX, y: event.screenY }
-            ipcRenderer.send('mousemove', position)
-        })
-
-        document.addEventListener('mouseup', () => {
-            ipcRenderer.send('mouseup')
-        })
-
-
-    </script>
+    <script src="render/login.js"> </script>
 </body>
 
 </html>

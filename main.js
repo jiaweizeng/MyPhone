@@ -1,15 +1,11 @@
-const { app, BrowserWindow, ipcMain, screen } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 let isDragging = false
 let mousePosition
 const log = require('electron-log')
-// const win = BrowserWindow
 const createWindow = () => {
-  // const { width, height } = screen.getPrimaryDisplay().workAreaSize
   const win = new BrowserWindow({
     // width: 320,
     // height: 400,
-    // width,
-    // height,
     width: 920,
     height: 700,
     transparent: true,
@@ -23,7 +19,7 @@ const createWindow = () => {
 
   win.show()
   win.webContents.openDevTools()
-  win.loadFile('login.html')
+  win.loadFile('home.html')
 
   // 注册鼠标按下事件
   ipcMain.on('mousedown', (event, position) => {
