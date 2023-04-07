@@ -8,6 +8,8 @@
     <style>
         .login-container {
             position: fixed;
+            user-select: none;
+            /* 取消滑动鼠标框选文字 */
             width: 240px;
             height: 300px;
             background-color: #fff;
@@ -66,7 +68,7 @@
 
 <body>
 
-    <div class="login-container">
+    <div class="login-container" id="loginContainer">
 
         <img class="ivClose" id="ivLoginClose" src="drawable/close_gray.png"
             style="position: absolute; top: 0; right: 0;" alt="A beautiful image">
@@ -99,6 +101,22 @@
                 ipcRenderer.send('quit-app');
             });
         });
+
+        document.addEventListener('mousedown', (event) => {
+            const position = { x: event.screenX, y: event.screenY }
+            ipcRenderer.send('mousedown', position)
+        })
+
+        document.addEventListener('mousemove', (event) => {
+            const position = { x: event.screenX, y: event.screenY }
+            ipcRenderer.send('mousemove', position)
+        })
+
+        document.addEventListener('mouseup', () => {
+            ipcRenderer.send('mouseup')
+        })
+
+
     </script>
 </body>
 
