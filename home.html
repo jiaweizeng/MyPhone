@@ -19,7 +19,8 @@
             display: flex;
             align-items: center;
             /* 将子内容在垂直方向上居中 */
-            justify-content: space-between; /* 横向排列子元素，两端对齐 */
+            justify-content: space-between;
+            /* 横向排列子元素，两端对齐 */
             width: 560px;
             height: 52px;
             background-color: #0176F6;
@@ -43,7 +44,7 @@
         }
 
         .tvNum {
-            color: #FFFFFF ;
+            color: #FFFFFF;
             font-size: 20px;
             margin-left: 10px;
         }
@@ -57,14 +58,113 @@
             /* 横向排列子元素，右对齐 */
             margin-right: 12px;
         }
-        .ivSmall{
+
+        .ivSmall {
             width: 20px;
             height: 20px;
             margin-right: 10px;
         }
-        .ivClose{
+
+        .ivClose {
             width: 16px;
             height: 16px;
+        }
+
+        .homeLeft {
+            position: relative;
+            float: left;
+            width: 64px;
+            height: 368px;
+            background-color: #F2F2F2;
+        }
+
+        .tabKeyboard {
+            display: flex;
+            /* 将容器设置为 Flex 容器 */
+            flex-direction: column;
+            /* 设置 Flex 容器的主轴方向为垂直方向 */
+            justify-content: center;
+            /* 在垂直方向上居中对齐子元素 */
+            align-items: center;
+            /* 在水平方向上居中对齐子元素 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 64px;
+            height: 50px;
+            margin-top: 25px;
+        }
+
+        .ivKeyboard {
+            width: 24px;
+            height: 24px;
+        }
+
+        .ivSetting {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            /* 设置子元素左边缘距离父元素左边缘的距离为父元素宽度的一半 */
+            transform: translateX(-50%);
+            /* 将子元素沿 X 轴向左移动自身宽度的一半 */
+            width: 24px;
+            height: 24px;
+            margin-bottom: 25px;
+            background-image: url('drawable/setting.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .tvKeyboard {
+            font-size: 11px;
+            color: #434343;
+        }
+
+        .vertical-line {
+            top: 0;
+            right: 0;
+            border-right: 1px solid #ddd;
+            /* 设置左边框为实线，并指定颜色和宽度 */
+            height: 368px;
+            /* 设置线条高度 */
+        }
+
+        .homeRight {
+            float: right;
+            width: 496px;
+            height: 368px;
+        }
+
+        .dial-pad {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .key {
+            color: #fff;
+            width: 40px;
+            font-size: 28px;
+            font-weight: 300;
+            font-family: SourceHanSansCN-Medium;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.16);
+            border-radius: 30px;
+            border: none;
+        }
+
+        .keyboardLayout {
+            width: 280px;
+            height: 324px;
+            background-image: linear-gradient(227deg, #5FA8FB 3%, #0176F6 93%);
+            border-radius: 8px;
+            margin: 20px auto;
         }
     </style>
 </head>
@@ -80,6 +180,45 @@
                 <img src="drawable/small.png" alt="small" class="ivSmall">
                 <img src="drawable/close.png" alt="close" class="ivClose">
             </div>
+        </div>
+
+        <div class="homeLeft">
+            <div class="tabKeyboard">
+                <img class="ivKeyboard" src="drawable/keyboard.png">
+                <label class="tvKeyboard">拨号键盘</label>
+            </div>
+            <div class="ivSetting"></div>
+            <div class="vertical-line"></div>
+        </div>
+
+        <div class="homeRight">
+
+            <div class="keyboardLayout">
+                <div class="dial-pad">
+                    <div class="row">
+                        <button class="key">1</button>
+                        <button class="key">2</button>
+                        <button class="key">3</button>
+                    </div>
+                    <div class="row">
+                        <button class="key">4</button>
+                        <button class="key">5</button>
+                        <button class="key">6</button>
+                    </div>
+                    <div class="row">
+                        <button class="key">7</button>
+                        <button class="key">8</button>
+                        <button class="key">9</button>
+                    </div>
+                    <div class="row">
+                        <button class="key">*</button>
+                        <button class="key">0</button>
+                        <button class="key">#</button>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
     <script src="render/home.js"></script>
