@@ -150,21 +150,60 @@
         .key {
             color: #fff;
             width: 40px;
-            font-size: 28px;
-            font-weight: 300;
+            font-size: 24px;
+            font-weight: 400;
             font-family: SourceHanSansCN-Medium;
             height: 40px;
             background: rgba(255, 255, 255, 0.16);
             border-radius: 30px;
             border: none;
+
         }
 
         .keyboardLayout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: center; */
             width: 280px;
             height: 324px;
             background-image: linear-gradient(227deg, #5FA8FB 3%, #0176F6 93%);
             border-radius: 8px;
             margin: 20px auto;
+        }
+
+        .inputContext {
+            width: 176px;
+            height: 28px;
+            font-family: SourceHanSansCN-Medium;
+            font-size: 28px;
+            color: #FFFFFF;
+            letter-spacing: 0;
+            text-align: right;
+            font-weight: 500;
+            margin-top: 15px;
+            margin-bottom: 0px;
+        }
+
+        .time {
+            visibility: hidden;
+            margin-top: 8px;
+            width: 50px;
+            height: 16px;
+            opacity: 0.9;
+            font-family: SourceHanSansCN-Regular;
+            font-size: 16px;
+            color: #FFFFFF;
+            letter-spacing: 0;
+            text-align: center;
+            font-weight: 400;
+        }
+        .dialBtn{
+            margin-top: 12px;
+        }
+        .bottomImg{
+            width: 40px;
+            height: 40px;
         }
     </style>
 </head>
@@ -194,26 +233,36 @@
         <div class="homeRight">
 
             <div class="keyboardLayout">
+
+                <p class="inputContext" id="tvKeyInput"></p>
+                <p class="time">00:00</p>
                 <div class="dial-pad">
                     <div class="row">
                         <button class="key">1</button>
-                        <button class="key">2</button>
+                        <button class="key" style="margin-left: 32px; margin-right: 32px;">2</button>
                         <button class="key">3</button>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-top: 6px;">
                         <button class="key">4</button>
-                        <button class="key">5</button>
+                        <button class="key" style="margin-left: 32px; margin-right: 32px;">5</button>
                         <button class="key">6</button>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-top: 6px;">
                         <button class="key">7</button>
-                        <button class="key">8</button>
+                        <button class="key" style="margin-left: 32px; margin-right: 32px;">8</button>
                         <button class="key">9</button>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-top: 6px;">
                         <button class="key">*</button>
-                        <button class="key">0</button>
+                        <button class="key" style="margin-left: 32px; margin-right: 32px;">0</button>
                         <button class="key">#</button>
+                    </div>
+                </div>
+                <div class="dialBtn">
+                    <div class="row">
+                        <img class="bottomImg" id="ivKeySwitch" src="drawable/keyboard_select.png" style="visibility: hidden;">
+                        <img class="bottomImg"  src="drawable/call2.png" style="margin-left: 32px; margin-right: 32px;">
+                        <img class="bottomImg"  src="drawable/del.png" style="padding: 8px; width: 24px; height: 24px;">
                     </div>
                 </div>
             </div>

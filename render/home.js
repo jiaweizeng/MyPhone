@@ -1,5 +1,8 @@
 const { ipcRenderer } = require('electron');
-
+window.$ = window.jQuery = require('jquery');
+$(document).ready(function () {
+    
+});
 document.addEventListener('mousedown', (event) => {
     const position = { x: event.screenX, y: event.screenY }
     ipcRenderer.send('mousedown', position)
