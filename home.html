@@ -136,10 +136,40 @@
         }
 
         .dial-pad {
+            /* flex */
             display: flex;
+            height: 178px;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            display: none;
+            /* background-color: #434343; */
+        }
+
+        .talking {
+            height: 178px;
+            width: 280px;
+            background-color: #434343;
+            /* display: none; */
+            /* 将容器设置为 Flex 容器 */
+            flex-direction: column;
+            /* 设置 Flex 容器的主轴方向为垂直方向 */
+            justify-content: center;
+            /* 在垂直方向上居中对齐子元素 */
+            align-items: center;
+            /* 在水平方向上居中对齐子元素 */
+            position: absolute;
+        }
+
+        .talkState {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-family: SourceHanSansCN-Regular;
+            background-color: #5FA8FB;
+            font-size: 16px;
+            color: #FFFFFF;
+            letter-spacing: 0;
+            font-weight: 400;
         }
 
         .row {
@@ -161,34 +191,45 @@
         }
 
         .keyboardLayout {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: list-item;
+            /* 去除list-item样式带来的小黑点 */
+            list-style-type: none;
+            /* flex-direction: column;
+            align-items: center; */
             /* justify-content: center; */
             width: 280px;
             height: 324px;
             background-image: linear-gradient(227deg, #5FA8FB 3%, #0176F6 93%);
             border-radius: 8px;
             margin: 20px auto;
+            text-align: center;
         }
 
         .inputContext {
-            width: 176px;
-            height: 28px;
+            display: inline-block;
+            width: 180px;
+            height: 32px;
             font-family: SourceHanSansCN-Medium;
             font-size: 28px;
             color: #FFFFFF;
             letter-spacing: 0;
             text-align: right;
             font-weight: 500;
-            margin-top: 15px;
+            margin-top: 10px;
             margin-bottom: 0px;
+            /* 隐藏超出部分 */
+            overflow: hidden;
+            /* 在文本末尾添加省略号 */
+            /* text-overflow: ellipsis; */
+            /* 禁止换行 */
+            /* white-space: nowrap; */
         }
 
         .time {
             visibility: hidden;
-            margin-top: 8px;
-            width: 50px;
+            display: block;
+            margin-top: 0px;
+            width: 280px;
             height: 16px;
             opacity: 0.9;
             font-family: SourceHanSansCN-Regular;
@@ -198,10 +239,16 @@
             text-align: center;
             font-weight: 400;
         }
-        .dialBtn{
+
+        .dialBtn {
+            display: flex;
             margin-top: 12px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-        .bottomImg{
+
+        .bottomImg {
             width: 40px;
             height: 40px;
         }
@@ -233,9 +280,9 @@
         <div class="homeRight">
 
             <div class="keyboardLayout">
-
                 <p class="inputContext" id="tvKeyInput"></p>
                 <p class="time">00:00</p>
+                
                 <div class="dial-pad">
                     <div class="row">
                         <button class="key">1</button>
@@ -258,11 +305,22 @@
                         <button class="key">#</button>
                     </div>
                 </div>
+                <div class="talking">
+                    <p class="talkState">正在通话中......</p>
+                    <div class="voice">
+                        <img src="drawable/voice.png" style="width: 32px; height: 23px;">
+                        <input type="range" min="0" max="100" value="50">
+                    </div>
+
+                </div>
                 <div class="dialBtn">
                     <div class="row">
-                        <img class="bottomImg" id="ivKeySwitch" src="drawable/keyboard_select.png" style="visibility: hidden;">
-                        <img class="bottomImg"  src="drawable/call2.png" style="margin-left: 32px; margin-right: 32px;">
-                        <img class="bottomImg"  src="drawable/del.png" style="padding: 8px; width: 24px; height: 24px;">
+                        <img class="bottomImg" id="ivKeySwitch" src="drawable/keyboard_select.png"
+                            style="visibility: hidden;">
+                        <img class="bottomImg" id="ivCall" src="drawable/call2.png"
+                            style="margin-left: 32px; margin-right: 32px;">
+                        <img class="bottomImg" id="ivKeyDel" src="drawable/del.png"
+                            style="padding: 8px; width: 24px; height: 24px;">
                     </div>
                 </div>
             </div>
