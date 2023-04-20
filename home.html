@@ -131,6 +131,7 @@
         }
 
         .homeRight {
+            display: flex;
             float: right;
             width: 496px;
             height: 368px;
@@ -240,6 +241,7 @@
             border-radius: 8px;
             margin: 20px auto;
             text-align: center;
+            display: none;
         }
 
         .inputContext {
@@ -288,6 +290,45 @@
         .bottomImg {
             width: 40px;
             height: 40px;
+        }
+
+        .setting {
+            overflow: auto;
+            width: 100%;
+            height: 100%;
+            padding-left: 20px;
+            padding-right: 60px;
+            /* background-color: #5FA8FB; */
+        }
+
+        .multiSelect {
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            /* 不换行 */
+            flex-wrap: nowrap;
+        }
+
+        .tvSettingDec {
+            font-family: SourceHanSansCN-Regular;
+            font-size: 14px;
+            color: #555555;
+            letter-spacing: 0;
+            font-weight: 400;
+        }
+
+        .select {
+            margin-left: 20px;
+            flex: 1;
+            border: 1px solid rgba(233, 233, 233, 1);
+            border-radius: 2px;
+        }
+
+        .line {
+            margin-top: 15px;
+            width: 100%;
+            height: 1px;
+            background: #E9E9E9;
         }
     </style>
 </head>
@@ -368,7 +409,18 @@
                 </div>
             </div>
 
+            <div class="setting">
+                <div class="multiSelect">
+                    <span class="tvSettingDec">振铃设备</span>
+                    <select class="select">
+                        <option value="option1">选项 1</option>
+                        <option value="option2">选项 2</option>
+                        <option value="option3">选项 3</option>
+                    </select>
+                </div>
 
+                <div class="line"></div>
+            </div>
         </div>
     </div>
     <script src="render/home.js"></script>
