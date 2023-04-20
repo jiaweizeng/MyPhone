@@ -8,6 +8,7 @@
     <title>Document</title>
     <style>
         .homeContainer {
+            user-select: none;
             width: 560px;
             height: 420px;
             background-color: #fff;
@@ -135,41 +136,78 @@
             height: 368px;
         }
 
-        .dial-pad {
-            /* flex */
+        .dialPad {
             display: flex;
             height: 178px;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            display: none;
-            /* background-color: #434343; */
+            /* display: none; */
         }
 
         .talking {
             height: 178px;
             width: 280px;
-            background-color: #434343;
-            /* display: none; */
+            display: none;
             /* 将容器设置为 Flex 容器 */
             flex-direction: column;
             /* 设置 Flex 容器的主轴方向为垂直方向 */
             justify-content: center;
-            /* 在垂直方向上居中对齐子元素 */
-            align-items: center;
             /* 在水平方向上居中对齐子元素 */
-            position: absolute;
+            align-items: center;
+            /* 在垂直方向上居中对齐子元素 */
+        }
+
+        .voice {
+            margin-top: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .talkState {
+            padding-top: 35px;
             margin-top: 0px;
             margin-bottom: 0px;
             font-family: SourceHanSansCN-Regular;
-            background-color: #5FA8FB;
             font-size: 16px;
             color: #FFFFFF;
             letter-spacing: 0;
             font-weight: 400;
+        }
+
+        #dragBar {
+            margin-left: 5px;
+            width: 110px;
+            height: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        #dragBar .progress {
+            width: 100%;
+            height: 4px;
+            border-radius: 3px;
+            background: #F1F5FDc4;
+        }
+
+        #dragBar .progress .progressBar {
+            width: 0%;
+            height: 100%;
+            border-radius: 3px;
+            background: #0072FF;
+        }
+
+        #dragBar .progressThumb {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            float: right;
+            position: relative;
+            left: 2px;
+            top: -2px;
+            pointer-events: none;
         }
 
         .row {
@@ -187,7 +225,6 @@
             background: rgba(255, 255, 255, 0.16);
             border-radius: 30px;
             border: none;
-
         }
 
         .keyboardLayout {
@@ -257,7 +294,7 @@
 
 <body>
     <div class="homeContainer">
-        <div class="homeTop">
+        <div class="homeTop" id="homeTop">
             <div class="topLeft">
                 <img src="drawable/ic_launcher.png" class="homeLogo">
                 <p class="tvNum">123456789</p>
@@ -282,8 +319,8 @@
             <div class="keyboardLayout">
                 <p class="inputContext" id="tvKeyInput"></p>
                 <p class="time">00:00</p>
-                
-                <div class="dial-pad">
+
+                <div class="dialPad" id="dialPad">
                     <div class="row">
                         <button class="key">1</button>
                         <button class="key" style="margin-left: 32px; margin-right: 32px;">2</button>
@@ -305,11 +342,17 @@
                         <button class="key">#</button>
                     </div>
                 </div>
-                <div class="talking">
+                <div class="talking" id="talking">
                     <p class="talkState">正在通话中......</p>
                     <div class="voice">
-                        <img src="drawable/voice.png" style="width: 32px; height: 23px;">
-                        <input type="range" min="0" max="100" value="50">
+                        <img src="drawable/voice.png" style="width: 15px; height: 15px; padding: 8px;">
+                        <div id="dragBar">
+                            <div class="progress">
+                                <div class="progressBar">
+                                    <div class="progressThumb"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

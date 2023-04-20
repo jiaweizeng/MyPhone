@@ -5,6 +5,9 @@ const tvKeyInput = document.getElementById('tvKeyInput');
 const ivKeyDel = document.getElementById('ivKeyDel');
 const ivKeySwitch = document.getElementById('ivKeySwitch');
 const ivCall = document.getElementById('ivCall');
+const homeTop = document.getElementById('homeTop');
+const dialPad = document.getElementById('dialPad');
+const talking = document.getElementById('talking');
 
 // 更改 src 属性值会导致浏览器重新下载图像。如果需要在页面中多次更改图像内容，可以将图像预加载到缓存中，以避免重复下载。可以使用 Image() 对象来实现预加载
 const imgHangup = new Image();
@@ -50,17 +53,61 @@ ivCall.addEventListener('click', () => {
     ivKeyDel.style.height="40px"
     ivKeyDel.style.padding="0px"
     ivCall.src=imgHangup.src
+    talking.style.display="flex"
+    dialPad.style.display="none"
 });
-document.addEventListener('mousedown', (event) => {
+homeTop.addEventListener('mousedown', (event) => {
     const position = { x: event.screenX, y: event.screenY }
     ipcRenderer.send('mousedown', position)
 })
 
-document.addEventListener('mousemove', (event) => {
+homeTop.addEventListener('mousemove', (event) => {
     const position = { x: event.screenX, y: event.screenY }
     ipcRenderer.send('mousemove', position)
 })
 
-document.addEventListener('mouseup', () => {
+homeTop.addEventListener('mouseup', () => {
     ipcRenderer.send('mouseup')
 })
+
+var slider = {
+  use: function(id) {
+      var self = this;
+      self.slider = document.getElementById(id);
+      self.bar = self.slider.querySelector('.progressBar');
+      self.thumb = self.slider.querySelector('.progressThumb');
+      self.slider.addEventListener('mousedown', function(e) {
+          if (e.button == 0) { // 判断点击左键
+              self.mDown = true;
+              self.beginX = e.offsetX;
+              self.positionX = e.offsetX;
+              self.beginClientX = e.clientX;
+              self.sliderLong = parseInt(self.getStyle(self.slider, 'width'));
+              console.log("offsetX=="+e.offsetX+"==clientX="+e.clientX+"==sliderLong="+self.sliderLong)
+              var per = parseInt(self.positionX / self.sliderLong * 100);
+              self.bar.style.width = per + '%';
+          }
+      });
+      document.addEventListener('mousemove', function(e) {
+          if (self.mDown) {
+              var moveX = e.clientX - self.beginClientX;
+              self.positionX = (self.beginX + moveX > self.sliderLong) ? self.sliderLong : (self.beginX + moveX < 0) ? 0 : self.beginX + moveX;
+              var per = parseInt(self.positionX / self.sliderLong * 100);
+              self.bar.style.width = per + '%';
+          }
+      });
+      document.addEventListener('mouseup', function(e) {
+          if (e.button == 0) {
+              self.mDown = false;
+          }
+      });
+  },
+  getStyle: function(obj,styleName){ // 获取元素样式的方法
+      if(obj.currentStyle){
+          return obj.currentStyle[styleName];
+      }else{
+          return getComputedStyle(obj,null)[styleName];
+      }
+  }
+};
+slider.use('dragBar');
