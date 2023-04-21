@@ -241,7 +241,7 @@
             border-radius: 8px;
             margin: 20px auto;
             text-align: center;
-            display: none;
+            /* display: none; */
         }
 
         .inputContext {
@@ -292,8 +292,9 @@
             height: 40px;
         }
 
-        .setting {
+        .settingLayout {
             overflow: auto;
+            display: none;
             width: 100%;
             height: 100%;
             padding-left: 20px;
@@ -307,6 +308,7 @@
             display: flex;
             /* 不换行 */
             flex-wrap: nowrap;
+            align-items: center;
         }
 
         .tvSettingDec {
@@ -330,6 +332,47 @@
             height: 1px;
             background: #E9E9E9;
         }
+
+        .tvTest {
+            margin-left: 20px;
+            font-family: SourceHanSansCN-Medium;
+            font-size: 14px;
+            color: #4284FF;
+            letter-spacing: 0;
+            font-weight: 500;
+        }
+
+        #inputBar {
+            flex: 1;
+            margin-left: 35px;
+            height: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        #inputBar .inputProgress {
+            width: 100%;
+            height: 4px;
+            border-radius: 3px;
+            background: rgb(240, 240, 240);
+        }
+
+        #inputBar .inputProgress .inputProgressBar {
+            width: 0%;
+            height: 100%;
+            border-radius: 3px;
+            background: rgba(66, 132, 255, 1);
+        }
+
+        .tvSettingResult {
+            margin-left: 10px;
+            font-family: SourceHanSansCN-Medium;
+            font-size: 14px;
+            color: #333333;
+            letter-spacing: 0;
+            line-height: 21px;
+            font-weight: 500;
+        }
     </style>
 </head>
 
@@ -347,17 +390,17 @@
         </div>
 
         <div class="homeLeft">
-            <div class="tabKeyboard">
+            <div class="tabKeyboard" id="tabKeyboard">
                 <img class="ivKeyboard" src="drawable/keyboard.png">
                 <label class="tvKeyboard">拨号键盘</label>
             </div>
-            <div class="ivSetting"></div>
+            <div class="ivSetting" id="ivSetting"></div>
             <div class="vertical-line"></div>
         </div>
 
         <div class="homeRight">
 
-            <div class="keyboardLayout">
+            <div class="keyboardLayout" id="keyboardLayout">
                 <p class="inputContext" id="tvKeyInput"></p>
                 <p class="time">00:00</p>
 
@@ -409,7 +452,23 @@
                 </div>
             </div>
 
-            <div class="setting">
+            <div class="settingLayout" id="settingLayout">
+                <div class="multiSelect">
+                    <span class="tvSettingDec">来电振铃音</span>
+                    <select class="select">
+                        <option value="option1">选项 1</option>
+                        <option value="option2">选项 2</option>
+                        <option value="option3">选项 3</option>
+                    </select>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="multiSelect">
+                    <span class="tvSettingDec">振铃设备选择</span>
+                    <span class="tvTest">点击测试</span>
+                </div>
+
                 <div class="multiSelect">
                     <span class="tvSettingDec">振铃设备</span>
                     <select class="select">
@@ -420,6 +479,82 @@
                 </div>
 
                 <div class="line"></div>
+
+                <div class="multiSelect">
+                    <span class="tvSettingDec">播放设备选择</span>
+                    <span class="tvTest">点击测试</span>
+                </div>
+
+                <div class="multiSelect">
+                    <span class="tvSettingDec">播放设备</span>
+                    <select class="select">
+                        <option value="option1">选项 1</option>
+                        <option value="option2">选项 2</option>
+                        <option value="option3">选项 3</option>
+                    </select>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="multiSelect">
+                    <span class="tvSettingDec">麦克风设备选择</span>
+                    <span class="tvTest">点击测试</span>
+                </div>
+
+                <div class="multiSelect">
+                    <span class="tvSettingDec">麦克风设备</span>
+                    <select class="select">
+                        <option value="option1">选项 1</option>
+                        <option value="option2">选项 2</option>
+                        <option value="option3">选项 3</option>
+                    </select>
+                </div>
+
+                <div class="multiSelect">
+                    <span class="tvSettingDec">输入等级</span>
+                    <div id="inputBar">
+                        <div class="inputProgress">
+                            <div class="inputProgressBar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="multiSelect">
+                    <span class="tvSettingDec">当前登录账号是</span>
+                    <span class="tvSettingResult">123456789</span>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="multiSelect">
+                    <span class="tvSettingDec">当前呼入号码是</span>
+                    <span class="tvSettingResult">123456789</span>
+                </div>
+
+                <div class="line"></div>
+
+                <form style="margin-top: 10px;">
+                    <input type="checkbox" id="cbLauncher" name="cbLauncher" value="value1">
+                    <label class="tvSettingDec" for="cbLauncher">开机启动</label>
+                </form>
+
+                <div class="line"></div>
+
+                <div class="multiSelect">
+                    <span class="tvSettingDec">PC电话离线时</span>
+                </div>
+                <div class="multiSelect">
+                    <span class="tvSettingDec" style="margin-left: 10px;">来电呼转到</span>
+                    <span class="tvSettingResult">123456789</span>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="multiSelect" style="margin-bottom: 60px;">
+                    <span class="tvSettingDec">版本号：2.0</span>
+                </div>
             </div>
         </div>
     </div>

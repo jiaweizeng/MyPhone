@@ -8,6 +8,10 @@ const ivCall = document.getElementById('ivCall');
 const homeTop = document.getElementById('homeTop');
 const dialPad = document.getElementById('dialPad');
 const talking = document.getElementById('talking');
+const tabKeyboard = document.getElementById("tabKeyboard");
+const ivSetting = document.getElementById("ivSetting");
+const keyboardLayout = document.getElementById("keyboardLayout");
+const settingLayout = document.getElementById("settingLayout");
 
 // 更改 src 属性值会导致浏览器重新下载图像。如果需要在页面中多次更改图像内容，可以将图像预加载到缓存中，以避免重复下载。可以使用 Image() 对象来实现预加载
 const imgHangup = new Image();
@@ -44,6 +48,14 @@ keys.forEach(button => {
 ivKeyDel.addEventListener('click', () => {
     const length = tvKeyInput.textContent.length
     tvKeyInput.textContent = tvKeyInput.textContent.substring(0, length - 1)
+});
+tabKeyboard.addEventListener('click', () => {
+    keyboardLayout.style.display="list-item"
+    settingLayout.style.display="none"
+});
+ivSetting.addEventListener('click', () => {
+    keyboardLayout.style.display="none"
+    settingLayout.style.display="block"
 });
 ivCall.addEventListener('click', () => {
     ivKeySwitch.src=imgSwitch.src
@@ -111,3 +123,12 @@ var slider = {
   }
 };
 slider.use('dragBar');
+
+
+cbLauncher.addEventListener("change", function() {
+    if (this.checked) {
+      console.log("cbLauncher is checked");
+    } else {
+      console.log("cbLauncher is not checked");
+    }
+});
