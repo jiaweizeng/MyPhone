@@ -37,6 +37,18 @@ imgMicClose.onload = function() {
 };
 $(document).ready(function () {
 
+    const optionsCallinMusic = ['1111', '22222']
+
+    const callinMusicSelect = document.getElementById('callinMusicSelect')
+    optionsCallinMusic.forEach((option) => {
+      const optionElement = document.createElement('option')
+      optionElement.text = option
+      callinMusicSelect.add(optionElement)
+    })
+    callinMusicSelect.addEventListener('change', (event) => {
+        const selectedOption = event.target.value
+        console.log(`选择了选项 ${selectedOption}`)
+      })
 });
 
 keys.forEach(button => {
