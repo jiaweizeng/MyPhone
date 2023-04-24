@@ -49,6 +49,7 @@ $(document).ready(function () {
         const selectedOption = event.target.value
         console.log(`选择了选项 ${selectedOption}`)
       })
+      callinMusicSelect.selectedIndex = 1 // 将第二个选项设置为默认选项
 });
 
 keys.forEach(button => {
