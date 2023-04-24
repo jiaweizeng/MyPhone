@@ -1,0 +1,14 @@
+{
+  "productName": "MyPhone",
+  "appId": "com.example.MyPhone",
+  "directories": {
+    "output": "dist"
+  },
+  "win": {
+    "icon": "drawable/ic_launcher.png",
+    "target": [
+      "nsis",
+      "zip"
+    ]
+  }
+}

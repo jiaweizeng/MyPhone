@@ -1,7 +1,10 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
+
 let isDragging = false
 let mousePosition
 const log = require('electron-log')
+const path = require('path')
+
 const createWindow = () => {
   const win = new BrowserWindow({
     // width: 320,
@@ -10,6 +13,7 @@ const createWindow = () => {
     height: 700,
     transparent: true,
     frame: false,
+    icon: path.join(__dirname, 'drawable/ic_launcher.png'), // 设置应用程序图标
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
