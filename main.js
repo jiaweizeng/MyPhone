@@ -1,9 +1,30 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain, Tray, Menu } = require('electron')
 
 let isDragging = false
 let mousePosition
 const log = require('electron-log')
 const path = require('path')
+let tray = null
+
+app.on('ready', () => {
+  // 创建一个 Tray 对象并设置图标
+  tray = new Tray(path.join(__dirname, 'drawable/ic_launcher.png'))
+
+  const contextMenu = Menu.buildFromTemplate([
+      { label: '打开应用', click: () => { /* 在这里编写打开应用的逻辑代码 */ } },
+      { label: '退出应用', click: () => { app.quit() } }
+    ])
+
+  // 设置 Tray 工具提示
+  tray.setToolTip('My Phone')
+
+  // 点击 Tray 图标时触发的事件
+  tray.on('click', () => {
+    // 在这里编写点击 Tray 图标后的响应事件代码
+  })
+
+  tray.setContextMenu(contextMenu)
+})
 
 const createWindow = () => {
   const win = new BrowserWindow({
