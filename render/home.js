@@ -11,7 +11,8 @@ const talking = document.getElementById('talking');
 const tabKeyboard = document.getElementById("tabKeyboard");
 const ivSetting = document.getElementById("ivSetting");
 const keyboardLayout = document.getElementById("keyboardLayout");
-const settingLayout = document.getElementById("settingLayout");
+const ivSmall = document.getElementById("ivSmall");
+const ivClose = document.getElementById("ivClose");
 
 // 更改 src 属性值会导致浏览器重新下载图像。如果需要在页面中多次更改图像内容，可以将图像预加载到缓存中，以避免重复下载。可以使用 Image() 对象来实现预加载
 const imgHangup = new Image();
@@ -67,6 +68,12 @@ ivCall.addEventListener('click', () => {
     ivCall.src=imgHangup.src
     talking.style.display="flex"
     dialPad.style.display="none"
+});
+ivSmall.addEventListener('click', () => {
+    ipcRenderer.send('hide')
+});
+ivClose.addEventListener('click', () => {
+    ipcRenderer.send('hide')
 });
 homeTop.addEventListener('mousedown', (event) => {
     const position = { x: event.screenX, y: event.screenY }
