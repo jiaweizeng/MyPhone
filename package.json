@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "build": "electron-builder --config electron-builder.json"
+    "build": "electron-builder --config electron-builder.json",
+    "dist": "electron-builder --win --ia32"
   },
   "author": "",
   "license": "ISC",

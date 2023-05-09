@@ -4,11 +4,32 @@
   "directories": {
     "output": "dist"
   },
+  "files": [
+    "package.json",
+    "jquery.min.js",
+    "main.js",
+    "login.html",
+    "home.html",
+    "render/**/*",
+    "drawable/**/*"
+  ],
+  "extraFiles": [
+    {
+      "from": "./XXX/XXX.dll",
+      "to": "XXX.dll"
+    }
+  ],
   "win": {
-    "icon": "drawable/ic_launcher.png",
+    "icon": "./drawable/ic_launcher.png",
     "target": [
       "nsis",
       "zip"
     ]
+  },
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "AppImage"
   }
 }
